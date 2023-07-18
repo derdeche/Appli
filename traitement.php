@@ -19,12 +19,12 @@ switch ($_GET['action']){
                         ];
 
         $_SESSION['products'][] = $product;
-        
-    }
-}
+                
+            }
+        }
 
 
-header("Location:index.php"); 
+        header("Location:index.php"); 
 		break;
 
         /* action de supprimer tout le panier*/
@@ -35,7 +35,7 @@ header("Location:index.php");
 
         /* ajouter par 1*/
         case "plus":
-            if(isset($_SESSION["products"]))
+            if(isset($_SESSION["products"])) 
                 {
                     $_SESSION["products"][$_GET["index"]]["qtt"]++;
                     $_SESSION["products"][$_GET["index"]]["total"]+= 

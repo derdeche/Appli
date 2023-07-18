@@ -1,23 +1,14 @@
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    
-    <title>Récapitulatif des produits</title>
-</head>
 
-<?php
-    session_start();
-?>
+
+
 
 <body>
-
+    
     <?php
+    session_start();
+    ob_start();
     /* verifier si la session existe et non vide*/
     if(!isset($_SESSION['products']) || empty ($_SESSION['products']))
     {
@@ -61,13 +52,16 @@
             
             "</tr>";
 
-    }
-    ?>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+            
+        }
+    $titre = "voir produit";
+    $contenu = ob_get_clean();
 
-</body>
-
-<footer>
+    require_once "template.php";
+        ?>
+       
+    </body>
+    <footer>
     <label class="d-flex p-2" >
         <a href="index.php" class="p-3 mb-2 bg-primary text-white">Ajouter encore un produit</a> 
     </label>
@@ -76,5 +70,4 @@
         <a href='traitement.php?action=supp'class="p-3 mb-2 bg-primary text-white">Vider le panier</a>
     </label>
 </footer>
-
-</html>
+    
