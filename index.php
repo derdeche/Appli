@@ -9,7 +9,7 @@ ob_start()
         
 </div>
     
-    <form action="traitement.php?action=add" method="post">
+    <form action="traitement.php?action=add" method="post" enctype = "multipart/form-data">
     <?php 
     require('calcule.php');
    
@@ -49,11 +49,15 @@ ob_start()
     <label class="p-3 mb-2 form-label">
         <a href="recap.php" class="p-3 mb-2 bg-success text-white">Voir le panier</a> 
     </label>
+
+    <label for="file"></label>
+    <input type="file"  name="file">
+    <button type ="submit"  class="p-3 mb-2 bg-primary text-white">Enregistrer</button>
     </footer>
   
 
     <?php
     $titre = "Ajout produit";
-    $contenu = ob_get_clean();
+    $contenu = ob_get_clean(); 
 
     require_once "template.php";
