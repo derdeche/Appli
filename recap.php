@@ -23,6 +23,7 @@
                     "<th scope='col '>Prix</th>",
                     "<th scope='col '>Quantité</th>",
                     "<th >Total</th>",
+                    "<th >Photo</th>",
                 "</tr>",
             "</thead>",
             "<tbody>";
@@ -43,6 +44,7 @@
             </td>",
             
             "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",
+            // "<td><img src='$tmpName, './upload/'.$name'. width='60px' ></td>",
             "</tr>";
     $totalGeneral += $product['total'];
     }
